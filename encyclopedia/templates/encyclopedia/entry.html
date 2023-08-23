@@ -1,0 +1,16 @@
+{% extends 'encyclopedia/layout.html' %}
+{% block title %}
+  {{title}}
+{% endblock  %}
+
+{% block body %}
+  {% if contents %}
+    {{ contents|safe }}
+  {% else %}
+    <p>This entry does not exist.</p>
+  {% endif %}
+  <br>
+  <a href="{% url 'encyclopedia:edit' title=title %}">
+    <button type="submit" class="btn btn-primary">Edit</button>
+  </a>
+{% endblock %}
